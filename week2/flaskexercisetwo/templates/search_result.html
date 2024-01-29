@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block content %}
+
+    {% for each in fina_list %}
+        {% if wordletter in each %}
+            <li>{{each}}</li>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

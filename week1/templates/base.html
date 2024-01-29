@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Flask App</title>
+  </head>
+  <body>
+
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/datetime">Date Info</a></li>
+        <li><a href="/quotes">Quotes Info</a></li>
+        <li><a href="/prime">Prime Info</a>></li>
+        <li><a href="/app">App Info</a></li>
+        <li><a href="/request">Request Info</a></li>
+      </ul>
+
+    <div>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>App Information</h1>
+<ul>
+  {% for key, value in app_info.items() %}
+  <li>{{ key }}: {{ value }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

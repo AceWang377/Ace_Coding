@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Request Information</h1>
+<ul>
+  <li>URL: {{ request_info['URL'] }}</li>
+  <li>Method: {{ request_info['Method'] }}</li>
+  <li>Headers:</li>
+  <ul>
+    {% for header in request_info['Headers'] %}
+    <li>{{ header[0] }}: {{ header[1] }}</li>
+    {% endfor %}
+  </ul>
+</ul>
+{% endblock %}

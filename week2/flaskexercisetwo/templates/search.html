@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block content %}
+<form method="POST" action="" novalidate>
+    {{ formabb.hidden_tag() }}
+    <div>
+        {{ formabb.my_field.label }}<br/>{{ formabb.my_field }}<br/>
+        {% for error in formabb.my_field.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>{{ formabb.submit() }}</div>
+</form>
+
+{% endblock %}
