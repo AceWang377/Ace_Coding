@@ -16,7 +16,7 @@ class AbbForm(FlaskForm):
 
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='The two password fields did not match')])
     email_address = EmailField('Email Address', validators=[DataRequired(),
-                    Length(min=6, max=15, message='Field must be between 6 and 15'),
+                    Length(min=6, message='Field must be between 6 and 15'),
                     Regexp(r'^\S+@\S+\.\S+$', message='Invalid email address') # validate email address
 ])
     date_of_birthday = DateField('Date of Birthday',validators=[DataRequired()])
