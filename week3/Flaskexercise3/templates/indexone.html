@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+{% block content %}
+
+  <h2>For the prime divisors coding</h2>
+  <p>The number of the ending address</p>
+  <div>{% for x in primedivisors_list %}
+        {{ x }}
+  {% endfor %}
+  </div>
+
+{% endblock %}
