@@ -1,0 +1,58 @@
+{% extends "index.html" %}
+{% block content %}
+    <h2>Please enter your A-level grade in the URL(with comma)</h2><br>
+    <h2>Or you can choose the subject and enter score from the blow forms</h2>
+<br>
+<hr>
+<br>
+    <form method="post" action="" novalidate>
+        {{ subject_form.hidden_tag() }}
+        {{ grade_form.hidden_tag() }}
+        <div>
+            {{ subject_form.subject_one.label }}       {{ subject_form.subject_one }}<br/>
+            {% for error in subject_form.subject_one.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <br>
+
+        <div>
+            {{ grade_form.grade_one.label }}       {{ grade_form.grade_one }}<br/>
+            {% for error in grade_form.grade_one.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <br>
+        <br>
+        <div>
+            {{ subject_form.subject_two.label }}        {{ subject_form.subject_two }}<br/>
+            {% for error in subject_form.subject_two.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            {{ grade_form.grade_two.label }}       {{ grade_form.grade_two }}<br/>
+            {% for error in grade_form.grade_two.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <br><br>
+        <div>
+            {{ subject_form.subject_three.label }}         {{ subject_form.subject_three }}<br/>
+            {% for error in subject_form.subject_three.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>
+            {{ grade_form.grade_three.label }}       {{ grade_form.grade_three }}<br/>
+            {% for error in grade_form.grade_three.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <br>
+        <div>{{ subject_form.submit() }}</div>
+
+    </form>
+{% endblock %}

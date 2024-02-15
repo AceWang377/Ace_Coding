@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% for each in value %}
+    <div>
+        <label>Location: <h2>{{ each[0] }}</h2></label><br>
+        <label>Date: <h2>{{ each[1] }}</h2></label>
+        <hr>
+    </div>
+
+    {% endfor %}
+
+{% endblock %}

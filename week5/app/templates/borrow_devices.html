@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<form method="POST" action="">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {{ borrowform.hidden_tag() }}
+    <div>
+        {{ borrowform.username.label }}<br/>{{ borrowform.username(size=30) }}<br/>
+        {% for error in borrowform.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ borrowform.borrow_devices.label }}<br/>{{ borrowform.borrow_devices() }}<br/>
+        {% for error in borrowform.borrow_devices.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+
+    <div class="col-sm-offset-2 col-sm-10">{{ borrowform.submit(class="btn btn-primary") }}</div>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for categories, message in messages %}
+            <div class="alert alert-{{category}}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <form action="" method="post" novalidate>
+        {{ delete_form.hidden_tag() }}
+        <div>
+            {{ delete_form.delete_username.label }}<br>{{ delete_form.delete_username(size=30) }}<br>
+            {% for error in delete_form.delete_username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+
+        <div class="col-sm-offset-2 col-sm-10">{{ delete_form.submit(class="btn btn-primary") }}</div>
+
+    </form>
+{% endblock %}

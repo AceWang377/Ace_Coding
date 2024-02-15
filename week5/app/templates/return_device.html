@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for categories, message in messages %}
+            <div class="alert alert-{{category}}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <form action="" method="post" novalidate>
+        {{ return_form.hidden_tag() }}
+        <div>
+            {{ return_form.username.label }}<br>{{ return_form.username(size=30) }}<br>
+            {% for error in return_form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div>
+            {{ return_form.device_name.label }}<br>{{ return_form.device_name }}<br>
+            {% for error in return_form.device_name.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+
+        <div class="col-sm-offset-2 col-sm-10">{{ return_form.submit(class="btn btn-primary") }}</div>
+    </form>
+{% endblock %}

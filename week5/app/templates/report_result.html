@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {% if student_info %}
+        <h2>Student Info</h2>
+        <p><strong>Name:</strong>{{ student_info.username }}</p>
+        <p><strong>Email:</strong>{{ student_info.email }}</p>
+        <p><strong>FirstName:</strong>{{ student_info.firstname }}</p>
+        <p><strong>LastName:</strong>{{ student_info.lastname }}</p>
+    {% endif %}
+
+    {% if loan_info %}
+        <h2>Loan Info History</h2>
+        <ul>
+        {% for loan in loan_info %}
+            <li>
+                Loan ID: {{ loan.loan_id }},
+                Device ID: {{ loan.device_id }},
+                Borrow Date: {{ loan.borrowdatetime.strftime('%Y-%m-%d %H:%M:%S') }},
+                {% if loan.returndatetime %}
+                Return Date: {{ loan.returndatetime.strftime('%Y-%m-%d %H:%M:%S') }}
+                {% else %}
+                Status: Not Returned
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if device_info %}
+        <h2>Device Info</h2>
+        <p><strong>Device Name:</strong>{{ device_info.device_name }}</p>
+        <p><strong>Active:</strong>{{ 'Yes' if device_info.is_active else 'No' }}</p>
+    {% endif %}
+
+{% endblock %}

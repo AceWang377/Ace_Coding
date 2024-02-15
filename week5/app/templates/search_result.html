@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block content %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {% for each in fina_list %}
+        {% if each.startswith(wordletter) %}
+            <li>{{each}}</li>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

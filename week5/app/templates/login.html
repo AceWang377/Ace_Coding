@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+{% block content %}
+
+<form method="post" action="" novalidate>
+        {{ myloginforms.hidden_tag() }}
+    <div>
+        {{ myloginforms.username.label }}<br/>{{ myloginforms.username }}<br/>
+        {% for error in myloginforms.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ myloginforms.password.label }}<br/>{{ myloginforms.password }}<br/>
+        {% for error in myloginforms.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ myloginforms.confirm_password.label }}<br/>{{ myloginforms.confirm_password }}<br/>
+        {% for error in myloginforms.confirm_password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ myloginforms.email_address.label }}<br/>{{ myloginforms.email_address }}<br/>
+        {% for error in myloginforms.email_address.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ myloginforms.date_of_birthday.label }}<br/>{{ myloginforms.date_of_birthday }}<br/>
+        {% for error in myloginforms.date_of_birthday.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+        <div>
+        {{ myloginforms.tel_phone.label }}<br/>{{ myloginforms.tel_phone }}<br/>
+        {% for error in myloginforms.tel_phone.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+        <div>
+        {{ myloginforms.location_address.label }}<br/>{{ myloginforms.location_address }}<br/>
+        {% for error in myloginforms.location_address.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+        <div>
+        {{ myloginforms.height.label }}<br/>{{ myloginforms.height }}<br/>
+        {% for error in myloginforms.height.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+            <div>
+        {{ myloginforms.weight.label }}<br/>{{ myloginforms.weight }}<br/>
+        {% for error in myloginforms.weight.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+
+
+    <div>{{ myloginforms.submit() }}</div>
+
+    </form>
+{% endblock %}
