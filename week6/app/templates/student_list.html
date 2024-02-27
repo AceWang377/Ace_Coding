@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <p>Student ID: {{ studentList.student_id }}</p>
+    <p>Student Username: {{ studentList.username }}</p>
+    <p>Student Firstname: {{ studentList.firstname }}</p>
+    <p>Student Lastname: {{ studentList.lastname }}</p>
+    <p>Student Email: {{ studentList.email }}</p>
+
+{#    {% for each in studentList %}#}
+{#        <p>Student ID: {{ each.student_id }}</p>#}
+{#        <p>Student Username: {{ each.username }}</p>#}
+{#        <p>Student Firstname: {{ each.firstname }}</p>#}
+{#        <p>Student Lastname: {{ each.lastname }}</p>#}
+{#        <p>Student Email: {{ each.email }}</p>#}
+{#        <br>#}
+{#    {% endfor %}#}
+{% endblock %}

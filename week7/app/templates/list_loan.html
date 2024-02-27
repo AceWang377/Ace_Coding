@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for loan in loans %}
+            <li>
+                Loan ID: {{ loan.loan_id }},
+                Device ID: {{ loan.device_id }},
+                Student ID: {{ loan.student_id }}
+                {% for each in students %}
+                    {% if each.student_id == loan.student_id %}
+                        Student Username: {{ each.username }}
+                        Student Firstname: {{ each.firstname }}
+                        Student Lastname: {{ each.lastname }}
+                        Student Email: {{ each.email }}
+                    {% endif %}
+                {% endfor %}
+                Borrow Date: {{ loan.borrowdatetime.strftime('%Y-%m-%d %H:%M:%S') }},
+                {% if loan.returndatetime %}
+                Return Date: {{ loan.returndatetime.strftime('%Y-%m-%d %H:%M:%S') }}
+                {% else %}
+                Status: Not Returned
+                {% endif %}
+            </li>
+    {% endfor %}
+
+{% endblock %}

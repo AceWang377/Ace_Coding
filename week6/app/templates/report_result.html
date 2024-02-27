@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if student %}
+        <p>Student name: {{ student.username }}</p>
+        <p>Student id: {{ student.student_id }}</p>
+        <p>Student firstname: {{ student.firstname }}</p>
+        <p>Student lastname: {{ student.lastname }}</p>
+        <p>Student Email: {{ student.email }}</p>
+    {% if loan_record %}
+        <p>loan history</p>
+        {% for each in loan_record %}
+            <p>loan_id:{{ each.loan_id }}</p>
+            <p>device_id:{{ each.device_id }}</p>
+            <p>borrowdatetime:{{ each.borrowdatetime }}</p>
+            <p>returndatetime:{{ each.returndatetime }}</p>
+        <br>
+        {% endfor %}
+    {% endif %}
+    {% endif %}
+
+
+{% endblock %}

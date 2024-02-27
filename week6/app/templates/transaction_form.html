@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" action="" novalidate>
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.bank_account_id.label }}<br/>{{ form.bank_account_id }}<br/>
+        {% for error in form.bank_account_id.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.object_bank_id.label }}<br/>{{ form.object_bank_id }}<br/>
+        {% for error in form.object_bank_id.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.transaction_type.label }}<br/>{{ form.transaction_type }}<br/>
+        {% for error in form.transaction_type.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.transaction_amount.label }}<br/>{{ form.transaction_amount }}<br/>
+        {% for error in form.transaction_amount.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+
+    <div>{{ form.submit() }}</div>
+</form>
+{% endblock %}
